@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package Central;
+package Modelos;
 
 /**
  *
@@ -71,6 +71,7 @@ public class LockhartMartinelli {
         }        
         return Z;
     }
+    
     public double getqg()
     {
         return RGL*qL;

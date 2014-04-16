@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package Central;
+package Modelos;
 
 import java.util.ArrayList;
 
