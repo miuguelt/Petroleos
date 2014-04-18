@@ -10,26 +10,30 @@ import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 import org.jfree.ui.ApplicationFrame;
 import java.awt.Dimension;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import org.jfree.chart.axis.NumberAxis;
-import org.jfree.chart.axis.NumberTickUnit;
-import org.jfree.chart.labels.StandardCategoryItemLabelGenerator;
 import org.jfree.chart.labels.StandardXYItemLabelGenerator;
-import org.jfree.chart.labels.XYItemLabelGenerator;
 import org.jfree.chart.plot.XYPlot;
 import org.jfree.chart.renderer.xy.XYLineAndShapeRenderer;
 
 public class Graficador extends ApplicationFrame {
 
+    private JFreeChart diagrama;
     ChartPanel chartPanel;
 
     public Graficador(ArrayList<Double> x, ArrayList<Double> y, String titulo, int[] rango) {
 
-        super("Graficador");
+        super("Graficador");         
         XYDataset paresDeDatos = PasarASerie(x, y);
-        JFreeChart diagrama = crearDiagrama(paresDeDatos, titulo, rango);
+        diagrama = crearDiagrama(paresDeDatos, titulo, rango);        
         chartPanel = new ChartPanel(diagrama);
-        chartPanel.setPreferredSize(new Dimension(640, 440));
+        chartPanel.setPreferredSize(new Dimension(640, 440));    
+    }
+
+    public Graficador(String title) {
+        super(title);
     }
 
     private XYDataset PasarASerie(ArrayList<Double> x, ArrayList<Double> y) {
@@ -41,10 +45,8 @@ public class Graficador extends ApplicationFrame {
         for (int i = 0; i < n; i++) {
             datos.add(x.get(i), y.get(i));
         }
-
         XYSeriesCollection conjuntoDatos = new XYSeriesCollection();
         conjuntoDatos.addSeries(datos);
-
         return conjuntoDatos;
     }
 
@@ -59,8 +61,8 @@ public class Graficador extends ApplicationFrame {
 
                 PlotOrientation.VERTICAL, //orientacion
 
-                false, // ver titulo de linea
-                false, //tooltips
+                true, // ver titulo de linea
+                true, //tooltips
                 false //URL
                 );
 
@@ -69,17 +71,18 @@ public class Graficador extends ApplicationFrame {
         diag.getPlot().setOutlinePaint(Color.GRAY);
         XYPlot plot = (XYPlot) diag.getPlot();
         NumberAxis range = (NumberAxis) plot.getRangeAxis();
+        
         //range.setTickUnit(new NumberTickUnit(1.0)); //De uno en uno
         range.setRange(rango[0]-5, rango[1]+5);
         XYLineAndShapeRenderer render = (XYLineAndShapeRenderer)plot.getRenderer();
-        render.setSeriesShapesVisible(0, true);
+        render.setSeriesShapesVisible(0, true);        
         render.setItemLabelAnchorOffset(2);
         render.setItemLabelGenerator(new StandardXYItemLabelGenerator());
         render.setItemLabelsVisible(true);
-        return diag;
+        return diag;        
     }
-
+    
     public ChartPanel getChartPanel() {
         return chartPanel;
-    }
+    } 
 }

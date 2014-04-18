@@ -4,16 +4,14 @@
  */
 package Central;
 
-import Herramientas.Graficador;
-import Modelos.BeggsBrill;
+import InterfaceModelos.BeggsBrillJInternalFrame;
 import Modelos.Eaton;
 import Modelos.LockhartMartinelli;
 import Modelos.PoettmannCarpenter;
-import java.util.ArrayList;
-import javax.swing.JFrame;
-import javax.swing.JScrollPane;
-import org.jfree.chart.ChartPanel;
-import org.jfree.chart.JFreeChart;
+import static java.awt.Component.CENTER_ALIGNMENT;
+import java.awt.Dimension;
+import javax.swing.JInternalFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -27,53 +25,23 @@ public class Interface extends javax.swing.JFrame {
     public Interface() {
         initComponents();
         setLocationRelativeTo(null);
+        //getContentPane().setLayout(new BoxLayout(getContentPane(), BoxLayout.LINE_AXIS));
+        setResizable(false);
     }
     
     //MIS FUNCIONES
     
-    ArrayList<Double> a = new ArrayList();
-    ArrayList<Double> b = new ArrayList();
-    
-   public int[] rango()
-   {
-       int[] rango = new int[2];      
-       rango[0] = (int)Math.round(b.get(0));
-       rango[1] = rango[0];
-       for (int i = 1; i <  b.size(); i++) 
-       {
-           if(rango[0]>(int)Math.round(b.get(i))) rango[0] = (int)Math.round(b.get(i));               
-           if(rango[1]<(int)Math.round(b.get(i))) rango[1] = (int)Math.round(b.get(i));           
-       }       
-       return rango;
-   }
-    
-    public void funcionBeggsBrill()
-    {   
-        Object[] objetoBeggsBrill = new Object[3];
-        BeggsBrill beggsbrill;
-        double L = 1000;
-        for (int i = 0; i < 3; i++) {           
-            beggsbrill = new BeggsBrill(L);
-            a.add(L);
-            b.add(500-14.7-beggsbrill.getDp());
-            objetoBeggsBrill[i] = (Object) beggsbrill;  
-             L = L + 1000;
-        }
-         beggsbrill = (BeggsBrill) objetoBeggsBrill[0];          
-         jTableBeggsBrill.setValueAt("L: "+beggsbrill.getLentrada(), 0, 1);
-         double Y = beggsbrill.getDp();
-         jTableBeggsBrill.setValueAt("Pnto: "+Y, 1, 1);
-         
-         beggsbrill = (BeggsBrill) objetoBeggsBrill[1];          
-         jTableBeggsBrill.setValueAt("L: "+beggsbrill.getLentrada(), 2, 1);
-         Y = beggsbrill.getDp();
-         jTableBeggsBrill.setValueAt("Pnto: "+Y, 3, 1);
-         
-         beggsbrill = (BeggsBrill) objetoBeggsBrill[2];          
-         jTableBeggsBrill.setValueAt("L: "+beggsbrill.getLentrada(), 4, 1);
-         Y = beggsbrill.getDp();
-         jTableBeggsBrill.setValueAt("Pnto: "+Y, 5, 1);         
-       
+    private void cargarpanel()
+    {
+        JInternalFrame mode = new BeggsBrillJInternalFrame();
+        //JOptionPane.showMessageDialog(rootPane, mode.getWidth());  *****ASIGNAR TAMAÑO DE FORMA AUTIMATICA
+        //ContenedorjLayeredPane.setPreferredSize(new Dimension(mode.getWidth(), mode.getHeight()));
+        //this.setPreferredSize(new Dimension(mode.getWidth(), mode.getHeight()));
+        this.setBounds(this.getX(),this.getY() , mode.getSize().width+7, mode.getSize().height+82);
+        ContenedorjLayeredPane.add(mode);
+        mode.show();
+        repaint();    
+        
     }
 
     /**
@@ -86,13 +54,8 @@ public class Interface extends javax.swing.JFrame {
     private void initComponents() {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel1 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTableResultados = new javax.swing.JTable();
-        jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTableTotal = new javax.swing.JTable();
+        jPanelPrincipal = new javax.swing.JPanel();
+        ContenedorjLayeredPane = new javax.swing.JLayeredPane();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTableLyM = new javax.swing.JTable();
@@ -102,95 +65,27 @@ public class Interface extends javax.swing.JFrame {
         jScrollPane5 = new javax.swing.JScrollPane();
         jTableBeggsBrill = new javax.swing.JTable();
         jPanelGrafico = new javax.swing.JPanel();
-        jPanel4 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTableResultados = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTableTotal = new javax.swing.JTable();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItemBeggsBrill = new javax.swing.JMenuItem();
+        jSeparator2 = new javax.swing.JPopupMenu.Separator();
+        jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTableResultados.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jTableResultados.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {"Razón Gas Disuelto-Petróleo", null, null},
-                {"Factor Volumétrico del Aceite", null, null},
-                {"Factor de Compresibilidad", null, null},
-                {"Volumen Total de la Mezcla", null, null},
-                {"Densidad de la Mezcla", null, null},
-                {"Gradiente de Presión", null, null}
-            },
-            new String [] {
-                "Variable", "Resultado P1", "Resultado P2"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Double.class, java.lang.Object.class
-            };
+        jPanelPrincipal.setLayout(new java.awt.BorderLayout());
 
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        jScrollPane1.setViewportView(jTableResultados);
+        ContenedorjLayeredPane.setBorder(new javax.swing.border.MatteBorder(null));
+        jPanelPrincipal.add(ContenedorjLayeredPane, java.awt.BorderLayout.CENTER);
 
-        jLabel1.setText("TOTALES");
-
-        jButton1.setText("Calcular");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        jTableTotal.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {"Factor de Fricción", null},
-                {"Gradiente de presión total, CON pérdidas de fricción", null},
-                {"Profundidad Total del Pozo", null}
-            },
-            new String [] {
-                "Variable", "Total"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Double.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        jScrollPane2.setViewportView(jTableTotal);
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 627, Short.MAX_VALUE)
-            .addComponent(jScrollPane2)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(188, 188, 188)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jButton1)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 291, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1)
-                .addGap(7, 7, 7))
-        );
-
-        jTabbedPane1.addTab("tab1", jPanel1);
+        jTabbedPane1.addTab("tab5", jPanelPrincipal);
 
         jTableLyM.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -227,13 +122,13 @@ public class Interface extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 627, Short.MAX_VALUE)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 779, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 205, Short.MAX_VALUE))
+                .addGap(0, 270, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("tab2", jPanel2);
@@ -327,30 +222,6 @@ public class Interface extends javax.swing.JFrame {
             .addGap(0, 193, Short.MAX_VALUE)
         );
 
-        jButton2.setText("Graficar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(jButton2)
-                .addContainerGap(471, Short.MAX_VALUE))
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButton2)
-                .addContainerGap(19, Short.MAX_VALUE))
-        );
-
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -358,11 +229,9 @@ public class Interface extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 607, Short.MAX_VALUE)
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 759, Short.MAX_VALUE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanelGrafico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jPanelGrafico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -373,28 +242,115 @@ public class Interface extends javax.swing.JFrame {
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanelGrafico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addContainerGap(157, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("tab4", jPanel3);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 632, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+        jTableResultados.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jTableResultados.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {"Razón Gas Disuelto-Petróleo", null, null},
+                {"Factor Volumétrico del Aceite", null, null},
+                {"Factor de Compresibilidad", null, null},
+                {"Volumen Total de la Mezcla", null, null},
+                {"Densidad de la Mezcla", null, null},
+                {"Gradiente de Presión", null, null}
+            },
+            new String [] {
+                "Variable", "Resultado P1", "Resultado P2"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.Double.class, java.lang.Object.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(jTableResultados);
+
+        jLabel1.setText("TOTALES");
+
+        jButton1.setText("Calcular");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jTableTotal.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {"Factor de Fricción", null},
+                {"Gradiente de presión total, CON pérdidas de fricción", null},
+                {"Profundidad Total del Pozo", null}
+            },
+            new String [] {
+                "Variable", "Total"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.Double.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(jTableTotal);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 779, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(188, 188, 188)
+                        .addComponent(jLabel1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButton1)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 779, Short.MAX_VALUE)
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 494, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 356, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton1)
+                .addGap(7, 7, 7))
         );
+
+        jTabbedPane1.addTab("tab1", jPanel1);
+
+        getContentPane().add(jTabbedPane1, java.awt.BorderLayout.CENTER);
+
+        jMenu1.setText("Modelos");
+
+        jMenuItemBeggsBrill.setText("Begg and Brill");
+        jMenuItemBeggsBrill.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemBeggsBrillActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItemBeggsBrill);
+        jMenu1.add(jSeparator2);
+
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Edit");
+        jMenuBar1.add(jMenu2);
+
+        setJMenuBar(jMenuBar1);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -516,14 +472,13 @@ public class Interface extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jMenuItemBeggsBrillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemBeggsBrillActionPerformed
         // TODO add your handling code here:
-        funcionBeggsBrill();      
-        JFrameGraficador hijobeggsbrill = new JFrameGraficador();      
-        hijobeggsbrill.graficar(a, b, "titulo grafico", rango());        
-        hijobeggsbrill.setVisible(true);
+        //JOptionPane.showMessageDialog(rootPane, "Entra");
         
-    }//GEN-LAST:event_jButton2ActionPerformed
+        cargarpanel();
+        
+    }//GEN-LAST:event_jMenuItemBeggsBrillActionPerformed
 
     /**
      * @param args the command line arguments
@@ -560,19 +515,24 @@ public class Interface extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLayeredPane ContenedorjLayeredPane;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItemBeggsBrill;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanelGrafico;
+    private javax.swing.JPanel jPanelPrincipal;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTableBeggsBrill;
     private javax.swing.JTable jTableEaton;
