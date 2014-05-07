@@ -56,6 +56,9 @@ public class Interface extends javax.swing.JFrame {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanelPrincipal = new javax.swing.JPanel();
         ContenedorjLayeredPane = new javax.swing.JLayeredPane();
+        jButton2 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTableLyM = new javax.swing.JTable();
@@ -83,6 +86,36 @@ public class Interface extends javax.swing.JFrame {
         jPanelPrincipal.setLayout(new java.awt.BorderLayout());
 
         ContenedorjLayeredPane.setBorder(new javax.swing.border.MatteBorder(null));
+
+        jButton2.setBackground(new java.awt.Color(0, 0, 0));
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/machin.jpg"))); // NOI18N
+        jButton2.setText("jButton2");
+        jButton2.setBorder(null);
+        jButton2.setBorderPainted(false);
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButton2.setDefaultCapable(false);
+        jButton2.setDisabledIcon(null);
+        jButton2.setBounds(30, 20, 720, 160);
+        ContenedorjLayeredPane.add(jButton2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
+        jLabel2.setText("Seleccione el modelo que desea operar");
+        jLabel2.setToolTipText("");
+        jLabel2.setBounds(200, 230, 390, 20);
+        ContenedorjLayeredPane.add(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/uis.jpg"))); // NOI18N
+        jButton3.setBorderPainted(false);
+        jButton3.setDefaultCapable(false);
+        jButton3.setDisabledIcon(null);
+        jButton3.setFocusPainted(false);
+        jButton3.setFocusable(false);
+        jButton3.setOpaque(false);
+        jButton3.setRequestFocusEnabled(false);
+        jButton3.setRolloverEnabled(false);
+        jButton3.setBounds(220, 290, 320, 180);
+        ContenedorjLayeredPane.add(jButton3, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
         jPanelPrincipal.add(ContenedorjLayeredPane, java.awt.BorderLayout.CENTER);
 
         jTabbedPane1.addTab("tab5", jPanelPrincipal);
@@ -517,7 +550,10 @@ public class Interface extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLayeredPane ContenedorjLayeredPane;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;

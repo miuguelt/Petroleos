@@ -29,8 +29,7 @@ public class GraficadorJFrame extends javax.swing.JFrame {
         initComponents();         
         setDefaultCloseOperation(Interface.HIDE_ON_CLOSE);
         setResizable(false);  
-        //getContentPane().setLayout(new BoxLayout(getContentPane(), BoxLayout.LINE_AXIS));
-       
+        //getContentPane().setLayout(new BoxLayout(getContentPane(), BoxLayout.LINE_AXIS));      
     }
     
     

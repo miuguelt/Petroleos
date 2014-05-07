@@ -9,24 +9,28 @@ package Modelos;
  * @author Miguel
  */
 public class BeggsBrill {
-
+    //Datos internos
+    
+    
+    //Datos externos
+    double Dp; //caida de presión supuesta
     double d; // = 4.0diametro
     double Longitud; //Longitud
-    double P1; // = 500presion corriente arriba**
-    double Dp = 100; //caida de presión supuesta
+    double P1; // = 500presion corriente arriba**    
     double Tprom; // = 120 Temperatura promedio**
     double R; // = 1000Relacion gas-aceite producido**
     double Yg; // = 0.65Gravedad especifica del gas
     double YAPI; // = 42Gravedad del aceite
     double qL; // = 2000Caudal de liquido
-    double qw = 0; //Caudal de agua
-    double Bw = 1; //Factor volumetrico de formacion del agua
-    double WOR = 0; //Relacion agua-aceite
     double Yw; // = 1.07Gravedad especifica del agua
-    char patron = 'i'; //Patron de flujo
-    double ug = 0.02; //Viscosidad del gas
-    double uo = 1; //viscosidad del aceite
-    double uw = 1; //Viscosidad del agua
+    double WOR; //Relacion agua-aceite  SU CALCULA
+    
+    double Bw; //Factor volumetrico de formacion del agua   
+    double ug; //Viscosidad del gas
+    double uo; //viscosidad del aceite
+    double uw; //Viscosidad del agua
+
+    char patron = 'i'; //Patron de flujo    
     //COLGAMIENTO HORIZONTAL
     double sa = 0.98;
     double ia = 0.845;
@@ -39,7 +43,8 @@ public class BeggsBrill {
     double dc = 0.0609;
 
     
-    
+    //Se calcula
+      double qw = 0; //Caudal de agua D87
 
             
             /**
@@ -55,7 +60,7 @@ public class BeggsBrill {
      * @param d diametro
      * @param qL Caudal de liquido
      */
-    public BeggsBrill(double Longitud,double P1,double Tprom,double R,double Yg,double Yw, double YAPI,double d,double qL) {
+    public BeggsBrill(double Longitud,double P1,double Tprom,double R,double Yg,double Yw, double YAPI,double d,double qL, double Dp, double Wcut,double Bw,double ug,double uo,double uw) {
         this.Longitud = Longitud;
         this.d = d;       
         this.P1 = P1;
@@ -65,6 +70,12 @@ public class BeggsBrill {
         this.YAPI = YAPI;
         this.qL = qL;
         this.Yw = Yw;
+        this.Dp = Dp;
+        this.WOR = Wcut/(1-Wcut);
+        this.Bw =Bw;
+        this.ug =ug; 
+        this.uo =uo;
+        this.uw =uw;
     }
 
     public double getLongitud()
@@ -294,5 +305,5 @@ public class BeggsBrill {
     public double getDp() //Caida de presion total
     {
         return (Longitud * ((getfT() * getGT() * getVm()) / (2 * 32.2 * d * 12))) / (1 - ((getpm() * getVm() * getVsg()) / (32.2 * (getPprom() + 14.7) * 144)));
-    }
+    }   
 }
