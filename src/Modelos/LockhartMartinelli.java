@@ -145,8 +145,8 @@ public class LockhartMartinelli {
     {
         return P1-getDPTg();
     }
-    
-    
-    
-    
+
+    public double getL() {
+        return L;
+    } 
 }

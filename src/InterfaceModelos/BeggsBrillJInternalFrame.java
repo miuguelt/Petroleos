@@ -6,9 +6,12 @@ package InterfaceModelos;
 
 import Herramientas.GraficadorJFrame;
 import Modelos.BeggsBrill;
+import com.sun.org.apache.bcel.internal.generic.BREAKPOINT;
 import java.awt.Dimension;
 import java.util.ArrayList;
 import javax.swing.JComponent;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Miguel
@@ -23,7 +26,7 @@ public class BeggsBrillJInternalFrame extends javax.swing.JInternalFrame {
     ArrayList<Double> b = new ArrayList();
     private Object[] objetoBeggsBrill;
     private BeggsBrill beggsbrill;
-    
+    private JFrame frame;
     public BeggsBrillJInternalFrame() 
     {
         initComponents();
@@ -50,17 +53,24 @@ public class BeggsBrillJInternalFrame extends javax.swing.JInternalFrame {
     double ug; //Viscosidad del gas
     double uo; //viscosidad del aceite
     double uw; //Viscosidad del agua
-    
-    private void asignarValores() {
-        P1 = Double.parseDouble(P1_jTextField2.getText());
+     private void source()
+    {
         Tprom = Double.parseDouble(Tprom_jTextField.getText());
+        P1 = Double.parseDouble(P1_jTextField.getText());
+    }
+    
+      private void flowline()
+    {
+        Longitud = Double.parseDouble(Longitud_jTextField.getText());
+        d = Double.parseDouble(d_jTextField.getText());
+        qL = Double.parseDouble(qL_jTextField.getText());
+    }
+      
+    private void general() {
         R = Double.parseDouble(R_jTextField.getText());
         Yg = Double.parseDouble(Yg_jTextField.getText());
         Yw = Double.parseDouble(Yw_jTextField.getText());
         YAPI = Double.parseDouble(YAPI_jTextField.getText());
-        Longitud = Double.parseDouble(Longitud_jTextField.getText());
-        d = Double.parseDouble(d_jTextField.getText());
-        qL = Double.parseDouble(qL_jTextField.getText());   
         Dp = Double.parseDouble(Dp_jTextField.getText());   
         Wcut = Double.parseDouble(Wcut_jTextField.getText());  
         Bw = Double.parseDouble(Bw_jTextField.getText());  
@@ -106,19 +116,12 @@ public class BeggsBrillJInternalFrame extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        Tprom_jTextField = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox();
-        jLabel2 = new javax.swing.JLabel();
-        P1_jTextField2 = new javax.swing.JTextField();
-        jComboBox2 = new javax.swing.JComboBox();
-        jPanel10 = new javax.swing.JPanel();
+        flowline_jPanel = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jPanel13 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
-        jComboBox12 = new javax.swing.JComboBox();
+        jLabel12 = new javax.swing.JLabel();
         jPanel14 = new javax.swing.JPanel();
         Longitud_jTextField = new javax.swing.JTextField();
         d_jTextField = new javax.swing.JTextField();
@@ -127,15 +130,28 @@ public class BeggsBrillJInternalFrame extends javax.swing.JInternalFrame {
         jComboBox18 = new javax.swing.JComboBox();
         jComboBox20 = new javax.swing.JComboBox();
         jComboBox13 = new javax.swing.JComboBox();
-        jButton1 = new javax.swing.JButton();
+        jPanel11 = new javax.swing.JPanel();
+        jButton6 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
+        source_jPanel = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        Tprom_jTextField = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        P1_jTextField = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        jPanel10 = new javax.swing.JPanel();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
-        jComboBox6 = new javax.swing.JComboBox();
-        jComboBox3 = new javax.swing.JComboBox();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jComboBox4 = new javax.swing.JComboBox();
+        jLabel17 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         Wcut_jTextField = new javax.swing.JTextField();
         R_jTextField = new javax.swing.JTextField();
@@ -143,12 +159,11 @@ public class BeggsBrillJInternalFrame extends javax.swing.JInternalFrame {
         Yw_jTextField = new javax.swing.JTextField();
         YAPI_jTextField = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
-        jComboBox5 = new javax.swing.JComboBox();
-        jComboBox7 = new javax.swing.JComboBox();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
         jPanel15 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         Dp_jTextField = new javax.swing.JTextField();
-        jComboBox14 = new javax.swing.JComboBox();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -157,43 +172,19 @@ public class BeggsBrillJInternalFrame extends javax.swing.JInternalFrame {
         ug_jTextField = new javax.swing.JTextField();
         uo_jTextField = new javax.swing.JTextField();
         uw_jTextField = new javax.swing.JTextField();
-        jComboBox8 = new javax.swing.JComboBox();
-        jComboBox9 = new javax.swing.JComboBox();
-        jComboBox10 = new javax.swing.JComboBox();
-        jComboBox11 = new javax.swing.JComboBox();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        jPanel8 = new javax.swing.JPanel();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED), " Source Properties"));
-        jPanel1.setLayout(new java.awt.GridLayout(2, 3, 20, 10));
+        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Properties - Flowline"));
 
-        jLabel1.setText("Temperature");
-        jPanel1.add(jLabel1);
-
-        Tprom_jTextField.setText("120");
-        Tprom_jTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Tprom_jTextFieldActionPerformed(evt);
-            }
-        });
-        jPanel1.add(Tprom_jTextField);
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "F" }));
-        jPanel1.add(jComboBox1);
-
-        jLabel2.setText("Pressure");
-        jPanel1.add(jLabel2);
-
-        P1_jTextField2.setText("500");
-        jPanel1.add(P1_jTextField2);
-
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "psia" }));
-        jPanel1.add(jComboBox2);
-
-        jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder("Properties - Flowline"));
-        jPanel10.setLayout(new java.awt.BorderLayout());
-
-        jPanel5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        jPanel13.setLayout(new java.awt.GridLayout(7, 1, 0, 15));
+        jPanel13.setLayout(new java.awt.GridLayout(3, 1, 0, 15));
 
         jLabel14.setText("Horizontal Distance");
         jPanel13.add(jLabel14);
@@ -201,15 +192,10 @@ public class BeggsBrillJInternalFrame extends javax.swing.JInternalFrame {
         jLabel16.setText("Inner Diameter");
         jPanel13.add(jLabel16);
 
-        jComboBox12.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Liquid Rate" }));
-        jComboBox12.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox12ActionPerformed(evt);
-            }
-        });
-        jPanel13.add(jComboBox12);
+        jLabel12.setText("Liquid Rate");
+        jPanel13.add(jLabel12);
 
-        jPanel14.setLayout(new java.awt.GridLayout(7, 1, 15, 15));
+        jPanel14.setLayout(new java.awt.GridLayout(3, 1, 15, 15));
 
         Longitud_jTextField.setText("1000");
         Longitud_jTextField.addActionListener(new java.awt.event.ActionListener() {
@@ -235,7 +221,7 @@ public class BeggsBrillJInternalFrame extends javax.swing.JInternalFrame {
         });
         jPanel14.add(qL_jTextField);
 
-        jPanel12.setLayout(new java.awt.GridLayout(7, 1, 15, 15));
+        jPanel12.setLayout(new java.awt.GridLayout(3, 1, 15, 15));
 
         jComboBox18.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ft" }));
         jPanel12.add(jComboBox18);
@@ -252,27 +238,155 @@ public class BeggsBrillJInternalFrame extends javax.swing.JInternalFrame {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14)
+                .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jPanel14, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel12, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 12, Short.MAX_VALUE))
         );
 
-        jPanel10.add(jPanel5, java.awt.BorderLayout.CENTER);
-
-        jButton1.setText("Resultados");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButton6.setText("Aceptar");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButton6ActionPerformed(evt);
             }
         });
+
+        jButton7.setText("Cancelar");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
+        jPanel11.setLayout(jPanel11Layout);
+        jPanel11Layout.setHorizontalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton6)
+                .addGap(18, 18, 18)
+                .addComponent(jButton7))
+        );
+        jPanel11Layout.setVerticalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel11Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton6)
+                    .addComponent(jButton7))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout flowline_jPanelLayout = new javax.swing.GroupLayout(flowline_jPanel);
+        flowline_jPanel.setLayout(flowline_jPanelLayout);
+        flowline_jPanelLayout.setHorizontalGroup(
+            flowline_jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(flowline_jPanelLayout.createSequentialGroup()
+                .addGroup(flowline_jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jPanel11, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        flowline_jPanelLayout.setVerticalGroup(
+            flowline_jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(flowline_jPanelLayout.createSequentialGroup()
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Source Properties"));
+        jPanel1.setLayout(new java.awt.GridLayout(2, 3, 15, 15));
+
+        jLabel1.setText("Temperature");
+        jPanel1.add(jLabel1);
+
+        Tprom_jTextField.setText("120");
+        Tprom_jTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Tprom_jTextFieldActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Tprom_jTextField);
+
+        jLabel10.setText("psia");
+        jPanel1.add(jLabel10);
+
+        jLabel2.setText("Pressure");
+        jPanel1.add(jLabel2);
+
+        P1_jTextField.setText("500");
+        jPanel1.add(P1_jTextField);
+
+        jLabel11.setText("F");
+        jPanel1.add(jLabel11);
+
+        jButton4.setText("Cancelar");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
+        jButton5.setText("Aceptar");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
+        jPanel10.setLayout(jPanel10Layout);
+        jPanel10Layout.setHorizontalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton5)
+                .addGap(18, 18, 18)
+                .addComponent(jButton4)
+                .addContainerGap())
+        );
+        jPanel10Layout.setVerticalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
+                .addContainerGap(14, Short.MAX_VALUE)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton4)
+                    .addComponent(jButton5))
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout source_jPanelLayout = new javax.swing.GroupLayout(source_jPanel);
+        source_jPanel.setLayout(source_jPanelLayout);
+        source_jPanelLayout.setHorizontalGroup(
+            source_jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(source_jPanelLayout.createSequentialGroup()
+                .addGroup(source_jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(14, 14, 14))
+        );
+        source_jPanelLayout.setVerticalGroup(
+            source_jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(source_jPanelLayout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Black Oil Properties"));
 
@@ -281,16 +395,11 @@ public class BeggsBrillJInternalFrame extends javax.swing.JInternalFrame {
 
         jPanel3.setLayout(new java.awt.GridLayout(5, 1, 15, 15));
 
-        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Wcut" }));
-        jComboBox6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox6ActionPerformed(evt);
-            }
-        });
-        jPanel3.add(jComboBox6);
+        jLabel13.setText("Wcut");
+        jPanel3.add(jLabel13);
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "GOR" }));
-        jPanel3.add(jComboBox3);
+        jLabel15.setText("GOR");
+        jPanel3.add(jLabel15);
 
         jLabel3.setText("Gas S.G");
         jPanel3.add(jLabel3);
@@ -298,8 +407,8 @@ public class BeggsBrillJInternalFrame extends javax.swing.JInternalFrame {
         jLabel4.setText("Water S.G");
         jPanel3.add(jLabel4);
 
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "API" }));
-        jPanel3.add(jComboBox4);
+        jLabel17.setText("API");
+        jPanel3.add(jLabel17);
 
         jPanel2.add(jPanel3);
 
@@ -324,16 +433,11 @@ public class BeggsBrillJInternalFrame extends javax.swing.JInternalFrame {
 
         jPanel4.setLayout(new java.awt.GridLayout(5, 1, 15, 15));
 
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "%" }));
-        jComboBox5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox5ActionPerformed(evt);
-            }
-        });
-        jPanel4.add(jComboBox5);
+        jLabel18.setText("%");
+        jPanel4.add(jLabel18);
 
-        jComboBox7.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "scf/STB" }));
-        jPanel4.add(jComboBox7);
+        jLabel19.setText("scf/STB");
+        jPanel4.add(jLabel19);
 
         jPanel2.add(jPanel4);
 
@@ -347,9 +451,6 @@ public class BeggsBrillJInternalFrame extends javax.swing.JInternalFrame {
                 Dp_jTextFieldActionPerformed(evt);
             }
         });
-
-        jComboBox14.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Psi" }));
-        jComboBox14.setToolTipText("");
 
         jLabel6.setText("Waterl Volumetric Factor ");
 
@@ -367,13 +468,15 @@ public class BeggsBrillJInternalFrame extends javax.swing.JInternalFrame {
 
         uw_jTextField.setText("1");
 
-        jComboBox8.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "bl/STB" }));
+        jLabel20.setText("Psi");
 
-        jComboBox9.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "cP" }));
+        jLabel21.setText("bl/STB");
 
-        jComboBox10.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "cP" }));
+        jLabel22.setText("cP");
 
-        jComboBox11.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "cP" }));
+        jLabel23.setText("cP");
+
+        jLabel24.setText("cP");
 
         javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
         jPanel15.setLayout(jPanel15Layout);
@@ -394,17 +497,14 @@ public class BeggsBrillJInternalFrame extends javax.swing.JInternalFrame {
                     .addComponent(Bw_jTextField, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Dp_jTextField, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(uw_jTextField))
-                .addGap(18, 18, 18)
+                .addGap(18, 28, Short.MAX_VALUE)
                 .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jComboBox14, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel15Layout.createSequentialGroup()
-                        .addGap(0, 10, Short.MAX_VALUE)
-                        .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBox8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox11, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap())
+                    .addComponent(jLabel20)
+                    .addComponent(jLabel21)
+                    .addComponent(jLabel22)
+                    .addComponent(jLabel23)
+                    .addComponent(jLabel24))
+                .addGap(35, 35, 35))
         );
         jPanel15Layout.setVerticalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -413,27 +513,28 @@ public class BeggsBrillJInternalFrame extends javax.swing.JInternalFrame {
                 .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(Dp_jTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel20))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(Bw_jTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel6)
+                        .addComponent(Bw_jTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel21, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(ug_jTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel22))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(uo_jTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel23))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
                     .addComponent(uw_jTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel24))
                 .addContainerGap(31, Short.MAX_VALUE))
         );
 
@@ -454,26 +555,65 @@ public class BeggsBrillJInternalFrame extends javax.swing.JInternalFrame {
             .addComponent(jPanel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/horizontal/source.JPG"))); // NOI18N
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/horizontal/Flowline.JPG"))); // NOI18N
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Resultados");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGap(6, 6, 6)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 185, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(40, 40, 40))
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel8Layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(jButton1)
+                        .addGap(0, 5, Short.MAX_VALUE))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton1)
-                                .addGap(24, 24, 24))))))
+                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -481,12 +621,7 @@ public class BeggsBrillJInternalFrame extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1))
-                    .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -501,22 +636,24 @@ public class BeggsBrillJInternalFrame extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_d_jTextFieldActionPerformed
 
-    private void jComboBox12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox12ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox12ActionPerformed
-
     private void qL_jTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_qL_jTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_qL_jTextFieldActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        asignarValores();
-        crearVectores();
-        GraficadorJFrame hijobeggsbrill = new GraficadorJFrame();      
-        hijobeggsbrill.graficar(a, b, "titulo grafico", rango()); 
-        hijobeggsbrill.resultados(objetoBeggsBrill);
-        hijobeggsbrill.setVisible(true);
+        // TODO add your handling code here:        
+        try {
+            general();
+            source();
+            flowline();
+            crearVectores();
+            GraficadorJFrame hijobeggsbrill = new GraficadorJFrame();
+            hijobeggsbrill.graficar(a, b, "titulo grafico", rango());
+            hijobeggsbrill.tablaBeggsBrill(objetoBeggsBrill);
+            hijobeggsbrill.setVisible(true);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(rootPane, "Debe llenar todos los campos y utilizar (.) punto para los decimales");
+        }     
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void Longitud_jTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Longitud_jTextFieldActionPerformed
@@ -527,19 +664,59 @@ public class BeggsBrillJInternalFrame extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_Dp_jTextFieldActionPerformed
 
-    private void jComboBox6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox6ActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox6ActionPerformed
+        frame = new JFrame();
+        frame.add(source_jPanel);
+        frame.setResizable(false);
+        frame.setBounds(100, 100, source_jPanel.getPreferredSize().width, source_jPanel.getPreferredSize().height+30);
+        frame.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jComboBox5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox5ActionPerformed
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox5ActionPerformed
+        frame = new JFrame();
+        frame.add(flowline_jPanel);
+        frame.setResizable(false);      
+        frame.setBounds(100, 100, flowline_jPanel.getPreferredSize().width+8, flowline_jPanel.getPreferredSize().height+8);
+        frame.setVisible(true);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+        frame.setVisible(false);
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+        try {
+            flowline();
+            frame.setVisible(false);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(rootPane, "Debe llenar todos los campos y utilizar (.) punto para los decimales");
+        }   
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        try {
+            source();
+            frame.setVisible(false);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(rootPane, "Debe llenar todos los campos y utilizar (.) punto para los decimales");
+        }
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        frame.setVisible(false);
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Bw_jTextField;
     private javax.swing.JTextField Dp_jTextField;
     private javax.swing.JTextField Longitud_jTextField;
-    private javax.swing.JTextField P1_jTextField2;
+    private javax.swing.JTextField P1_jTextField;
     private javax.swing.JTextField R_jTextField;
     private javax.swing.JTextField Tprom_jTextField;
     private javax.swing.JTextField Wcut_jTextField;
@@ -547,27 +724,34 @@ public class BeggsBrillJInternalFrame extends javax.swing.JInternalFrame {
     private javax.swing.JTextField Yg_jTextField;
     private javax.swing.JTextField Yw_jTextField;
     private javax.swing.JTextField d_jTextField;
+    private javax.swing.JPanel flowline_jPanel;
     private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox jComboBox1;
-    private javax.swing.JComboBox jComboBox10;
-    private javax.swing.JComboBox jComboBox11;
-    private javax.swing.JComboBox jComboBox12;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
     private javax.swing.JComboBox jComboBox13;
-    private javax.swing.JComboBox jComboBox14;
     private javax.swing.JComboBox jComboBox18;
-    private javax.swing.JComboBox jComboBox2;
     private javax.swing.JComboBox jComboBox20;
-    private javax.swing.JComboBox jComboBox3;
-    private javax.swing.JComboBox jComboBox4;
-    private javax.swing.JComboBox jComboBox5;
-    private javax.swing.JComboBox jComboBox6;
-    private javax.swing.JComboBox jComboBox7;
-    private javax.swing.JComboBox jComboBox8;
-    private javax.swing.JComboBox jComboBox9;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -577,6 +761,7 @@ public class BeggsBrillJInternalFrame extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
@@ -587,7 +772,9 @@ public class BeggsBrillJInternalFrame extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
     private javax.swing.JTextField qL_jTextField;
+    private javax.swing.JPanel source_jPanel;
     private javax.swing.JTextField ug_jTextField;
     private javax.swing.JTextField uo_jTextField;
     private javax.swing.JTextField uw_jTextField;

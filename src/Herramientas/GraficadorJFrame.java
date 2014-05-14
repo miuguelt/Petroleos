@@ -5,8 +5,8 @@
 package Herramientas;
 
 import Central.Interface;
-import Herramientas.Graficador;
 import Modelos.BeggsBrill;
+import Modelos.LockhartMartinelli;
 import static java.awt.Component.CENTER_ALIGNMENT;
 import java.awt.geom.Point2D;
 import java.awt.geom.Rectangle2D;
@@ -59,9 +59,9 @@ public class GraficadorJFrame extends javax.swing.JFrame {
         jPanelgrafica.add(jsp); // Esto es para agregar el JScrollPane con el CharPanel Adentro a mi JPanel           
     }        
     
-    public void resultados(Object[] modelo)
+    public void tablaBeggsBrill(Object[] modelo)
     {
-         BeggsBrill beggsbrill;
+        BeggsBrill beggsbrill;
         int cantidad=10;//Datos de salida
         jTableresultados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [cantidad][3],
@@ -70,6 +70,19 @@ public class GraficadorJFrame extends javax.swing.JFrame {
             beggsbrill = (BeggsBrill) modelo[i];
            jTableresultados.setValueAt(beggsbrill.getLongitud(), i, 0); 
            jTableresultados.setValueAt(beggsbrill.getDp(), i, 1); 
+        }        
+    }
+    public void tablaLockhartMartinelli(Object[] modelo)
+    {
+        LockhartMartinelli lockhartmartinelli;
+        int cantidad=10;//Datos de salida
+        jTableresultados.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [cantidad][3],
+            new String [] { "Longitud ", "Caida de presión" }));
+        for (int i = 0; i < 3; i++) {
+            lockhartmartinelli = (LockhartMartinelli) modelo[i];
+           jTableresultados.setValueAt(lockhartmartinelli.getL(), i, 0); 
+           jTableresultados.setValueAt(lockhartmartinelli.getDPTL(), i, 1); 
         }        
     }
         
