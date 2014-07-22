@@ -6,8 +6,9 @@ package InterfaceModelos;
 
 import Herramientas.GraficadorJFrame;
 import Modelos.Eaton;
-import Modelos.LockhartMartinelli;
+import java.awt.Dimension;
 import java.util.ArrayList;
+import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -38,8 +39,16 @@ public class EatonJInternalFrame extends javax.swing.JInternalFrame {
     private double Yg; 
     private double uL; 
     private double ug; 
+    private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI()).getNorthPane();
+    private Dimension dimBarra = null;
+    
     public EatonJInternalFrame() {
         initComponents();
+        Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI()).getNorthPane(); 
+        dimBarra = Barra.getPreferredSize();
+        Barra.setSize(0, 0);
+        Barra.setPreferredSize(new Dimension(0, 0));
+        repaint();
     }
 
     private void source()
@@ -52,12 +61,13 @@ public class EatonJInternalFrame extends javax.swing.JInternalFrame {
     {
         d = Double.parseDouble(d_jTextField.getText());        
         L = Double.parseDouble(L_jTextField.getText());        
-        WOR = Double.parseDouble(WOR_jTextField.getText());        
-        Wcut = Double.parseDouble(Wcut_jTextField.getText());
+        WOR = Double.parseDouble(WOR_jTextField.getText());       
+       
     }
     
     private void general()
     {
+        Wcut = Double.parseDouble(Wcut_jTextField.getText());
         Yg = Double.parseDouble(Yg_jTextField.getText());
         RGL = Double.parseDouble(RGL_jTextField.getText());
         Yw = Double.parseDouble(Yw_jTextField.getText());
@@ -123,7 +133,6 @@ public class EatonJInternalFrame extends javax.swing.JInternalFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jPanel12 = new javax.swing.JPanel();
@@ -131,7 +140,6 @@ public class EatonJInternalFrame extends javax.swing.JInternalFrame {
         L_jTextField = new javax.swing.JTextField();
         WOR_jTextField = new javax.swing.JTextField();
         d_jTextField = new javax.swing.JTextField();
-        Wcut_jTextField = new javax.swing.JTextField();
         jTextField8 = new javax.swing.JTextField();
         jTextField9 = new javax.swing.JTextField();
         jPanel11 = new javax.swing.JPanel();
@@ -139,7 +147,6 @@ public class EatonJInternalFrame extends javax.swing.JInternalFrame {
         jLabel12 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         jPanel9 = new javax.swing.JPanel();
@@ -158,7 +165,7 @@ public class EatonJInternalFrame extends javax.swing.JInternalFrame {
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
         jPanel16 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
+        Wcut_jTextField = new javax.swing.JTextField();
         RGL_jTextField = new javax.swing.JTextField();
         Yg_jTextField = new javax.swing.JTextField();
         Yw_jTextField = new javax.swing.JTextField();
@@ -286,9 +293,6 @@ public class EatonJInternalFrame extends javax.swing.JInternalFrame {
         jLabel8.setText("Inner Diameter");
         jPanel10.add(jLabel8);
 
-        jLabel9.setText("Wall Thickness");
-        jPanel10.add(jLabel9);
-
         jLabel10.setText("Roughness");
         jPanel10.add(jLabel10);
 
@@ -316,9 +320,6 @@ public class EatonJInternalFrame extends javax.swing.JInternalFrame {
         d_jTextField.setText("2");
         jPanel12.add(d_jTextField);
 
-        Wcut_jTextField.setText("0.5");
-        jPanel12.add(Wcut_jTextField);
-
         jTextField8.setText("0.001Falta");
         jPanel12.add(jTextField8);
 
@@ -340,9 +341,6 @@ public class EatonJInternalFrame extends javax.swing.JInternalFrame {
 
         jLabel15.setText("inches");
         jPanel11.add(jLabel15);
-
-        jLabel16.setText("inches");
-        jPanel11.add(jLabel16);
 
         jLabel17.setText("inches");
         jPanel11.add(jLabel17);
@@ -453,8 +451,8 @@ public class EatonJInternalFrame extends javax.swing.JInternalFrame {
 
         jPanel16.setLayout(new java.awt.GridLayout(5, 1, 15, 15));
 
-        jTextField1.setText("0Falta");
-        jPanel16.add(jTextField1);
+        Wcut_jTextField.setText("0.5");
+        jPanel16.add(Wcut_jTextField);
 
         RGL_jTextField.setText("1000");
         jPanel16.add(RGL_jTextField);
@@ -566,7 +564,7 @@ public class EatonJInternalFrame extends javax.swing.JInternalFrame {
                 .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(71, 71, 71)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton7)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -579,16 +577,15 @@ public class EatonJInternalFrame extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15))
+                .addGap(0, 8, Short.MAX_VALUE))
         );
 
         pack();
@@ -658,12 +655,12 @@ public class EatonJInternalFrame extends javax.swing.JInternalFrame {
             source();
             flowline();
             crearVectores();
-            GraficadorJFrame hijoLockartMartinelli = new GraficadorJFrame();
-            hijoLockartMartinelli.graficar(a, b, "titulo grafico", rango());
-            //hijoLockartMartinelli.resultados(objetoLockartMartinelli);
-            hijoLockartMartinelli.setVisible(true);
+            GraficadorJFrame hijoeaton = new GraficadorJFrame();
+            hijoeaton.graficar(a, b, "titulo grafico", rango()); //falta Asignar b;
+            hijoeaton.tablaEaton(objetoEaton);
+            hijoeaton.setVisible(true);
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(rootPane, "Debe llenar todos los campos y utilizar (.) punto para los decimales");
+            JOptionPane.showMessageDialog(rootPane, "Debe llenar todos los campos y utilizar (.) punto para los decimales"+e.getCause());
         }
     }//GEN-LAST:event_jButton7ActionPerformed
 
@@ -692,7 +689,6 @@ public class EatonJInternalFrame extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
@@ -715,7 +711,6 @@ public class EatonJInternalFrame extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
@@ -736,7 +731,6 @@ public class EatonJInternalFrame extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField8;

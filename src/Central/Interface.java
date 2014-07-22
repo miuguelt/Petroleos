@@ -5,14 +5,9 @@
 package Central;
 
 import InterfaceModelos.BeggsBrillJInternalFrame;
+import InterfaceModelos.EatonJInternalFrame;
 import InterfaceModelos.LockhartMartinelliJInternalFrame;
-import Modelos.Eaton;
-import Modelos.LockhartMartinelli;
-import Modelos.PoettmannCarpenter;
-import static java.awt.Component.CENTER_ALIGNMENT;
-import java.awt.Dimension;
 import javax.swing.JInternalFrame;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -41,38 +36,20 @@ public class Interface extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanelPrincipal = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
         ContenedorjLayeredPane = new javax.swing.JLayeredPane();
         jButton2 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jTableLyM = new javax.swing.JTable();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        jTableEaton = new javax.swing.JTable();
-        jPanel3 = new javax.swing.JPanel();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        jTableBeggsBrill = new javax.swing.JTable();
-        jPanelGrafico = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTableResultados = new javax.swing.JTable();
-        jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTableTotal = new javax.swing.JTable();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItemBeggsBrill = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jPanelPrincipal.setLayout(new java.awt.BorderLayout());
 
         ContenedorjLayeredPane.setBorder(new javax.swing.border.MatteBorder(null));
 
@@ -105,256 +82,24 @@ public class Interface extends javax.swing.JFrame {
         jButton3.setBounds(220, 290, 320, 180);
         ContenedorjLayeredPane.add(jButton3, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        jPanelPrincipal.add(ContenedorjLayeredPane, java.awt.BorderLayout.CENTER);
-
-        jTabbedPane1.addTab("tab5", jPanelPrincipal);
-
-        jTableLyM.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {"Factor de Friccion", null},
-                {"Caida de presion suponiendo que solo fluye liquido", null},
-                {"Factor de compresibilidad del gas promedio", null},
-                {"Caudal de gas", null},
-                {"Presion corriente abajo", null},
-                {"Caida de presion suponiendo que solo fluye gas", null},
-                {"Numero de Reynolds para el liquido", null},
-                {"Numero de Reynolds para el gas", null},
-                {"Regimen Flujo de liquido", null},
-                {"Regimen Flujo de gas", null},
-                {"Caida de presion total (de las dos fases) usando el diferencial de presion del liquido", null},
-                {"Presion corriente abajo usando el diferencial de presion del liquido", null},
-                {"Caida de presion total (de las dos fases) usando el diferencial de presion del gas", null},
-                {"Presion corriente abajo usando el diferencial de presion del gas", null}
-            },
-            new String [] {
-                "Variable", "Resultado"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        jScrollPane3.setViewportView(jTableLyM);
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 779, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 270, Short.MAX_VALUE))
-        );
-
-        jTabbedPane1.addTab("tab2", jPanel2);
-
-        jTableEaton.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {"Presión promedio", null},
-                {"Temperatura promedio", null},
-                {"Factor de compresibilidad del gas promedio", null},
-                {"Densidad del gas promedio", null},
-                {"Densidad del liquido", null},
-                {"Flujo másico del liquido", null},
-                {"Caudal del gas", null},
-                {"Flujo másico delgas", null},
-                {"Flujo másico de la mezcla", null},
-                {"Caudal de gas promedio a la presión 1", null},
-                {"Área de la tubería ", null},
-                {"Velocidad superficial del gas  a la presión 1", null},
-                {"Velocidad superficial del líquido  a la presión 1", null},
-                {"Velocidad superficial de la mezcla  a la presión 1", null},
-                {"Colgamiento de líquido a la presión 1", null},
-                {"Fracción de volumen de tubería ocupada por gas a la presión 1", null},
-                {"Caudal de gas promedio a la presión 2", null},
-                {"Velocidad superficial del gas  a la presión 2", null},
-                {"Velocidad superficial del líquido  a la presión 2", null},
-                {"Velocidad superficial de la mezcla  a la presión 2", null},
-                {"Colgamiento de líquido a la presión 2", null},
-                {"Fracción de volumen de tubería ocupada por gas a la presión 2", null},
-                {"Velocidad del líquido a la presión 1", null},
-                {"Velocidad del líquido a la presión 2", null},
-                {"Velocidad del gas a la presión 1", null},
-                {"Velocidad del gas a la presión 2", null},
-                {"Relación de gasto másico de gas  respecto al gasto másico total", null},
-                {"Relación de gasto másico de líquido  respecto al gasto másico total", null},
-                {"Factor de fricción", null},
-                {"Velocidad de la mezcla promedio", null},
-                {"Longitud de tubería calculada", null}
-            },
-            new String [] {
-                "Valores", "Resultados"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Double.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        jScrollPane4.setViewportView(jTableEaton);
-
-        jTabbedPane1.addTab("tab4", jScrollPane4);
-
-        jTableBeggsBrill.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Object.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        jScrollPane5.setViewportView(jTableBeggsBrill);
-
-        javax.swing.GroupLayout jPanelGraficoLayout = new javax.swing.GroupLayout(jPanelGrafico);
-        jPanelGrafico.setLayout(jPanelGraficoLayout);
-        jPanelGraficoLayout.setHorizontalGroup(
-            jPanelGraficoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 585, Short.MAX_VALUE)
-        );
-        jPanelGraficoLayout.setVerticalGroup(
-            jPanelGraficoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 193, Short.MAX_VALUE)
-        );
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 759, Short.MAX_VALUE)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jPanelGrafico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jPanelGrafico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(157, Short.MAX_VALUE))
-        );
-
-        jTabbedPane1.addTab("tab4", jPanel3);
-
-        jTableResultados.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jTableResultados.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {"Razón Gas Disuelto-Petróleo", null, null},
-                {"Factor Volumétrico del Aceite", null, null},
-                {"Factor de Compresibilidad", null, null},
-                {"Volumen Total de la Mezcla", null, null},
-                {"Densidad de la Mezcla", null, null},
-                {"Gradiente de Presión", null, null}
-            },
-            new String [] {
-                "Variable", "Resultado P1", "Resultado P2"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Double.class, java.lang.Object.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        jScrollPane1.setViewportView(jTableResultados);
-
-        jLabel1.setText("TOTALES");
-
-        jButton1.setText("Calcular");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        jTableTotal.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {"Factor de Fricción", null},
-                {"Gradiente de presión total, CON pérdidas de fricción", null},
-                {"Profundidad Total del Pozo", null}
-            },
-            new String [] {
-                "Variable", "Total"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Double.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        jScrollPane2.setViewportView(jTableTotal);
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 779, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(188, 188, 188)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jButton1)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 779, Short.MAX_VALUE)
+            .addGap(0, 809, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(ContenedorjLayeredPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 809, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 356, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1)
-                .addGap(7, 7, 7))
+            .addGap(0, 583, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addComponent(ContenedorjLayeredPane, javax.swing.GroupLayout.PREFERRED_SIZE, 502, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 81, Short.MAX_VALUE)))
         );
 
-        jTabbedPane1.addTab("tab1", jPanel1);
-
-        getContentPane().add(jTabbedPane1, java.awt.BorderLayout.CENTER);
+        getContentPane().add(jPanel1, java.awt.BorderLayout.PAGE_START);
 
         jMenu1.setText("Modelos");
 
@@ -373,6 +118,14 @@ public class Interface extends javax.swing.JFrame {
             }
         });
         jMenu1.add(jMenuItem1);
+
+        jMenuItem2.setText("Eaton");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem2);
         jMenu1.add(jSeparator2);
 
         jMenuBar1.add(jMenu1);
@@ -385,130 +138,10 @@ public class Interface extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        //Botón Calcular PoettmannCarpenter
-        double T1, P1, P2, Daceite, RGL, qw, qo, Ggas, Zsup, Yg, Yw,Dtuberia;
-
-        Daceite = 22;
-        Ggas = 0.65;
-        RGL = 500;
-        qw = 600;
-        qo = 400;
-        Yg = 0.65;
-        Yw = 1.07;
-        Dtuberia = 1.995;
-
-        //Calculo P2
-        T1 = 150;
-        P2 = 1000;
-        Zsup = 0.91;
-
-        PoettmannCarpenter calculoP2 = new PoettmannCarpenter(T1, P2,Daceite, Ggas, Zsup, RGL, qw, qo, Yw, Yg, Dtuberia);
-        jTableResultados.setValueAt(calculoP2.getRs(), 0, 2);
-        jTableResultados.setValueAt(calculoP2.getBo(), 1, 2);
-        jTableResultados.setValueAt(calculoP2.getZ(), 2, 2);
-        jTableResultados.setValueAt(calculoP2.getVt(), 3, 2);
-        jTableResultados.setValueAt(calculoP2.getpm(), 4, 2);
-        jTableResultados.setValueAt(calculoP2.getdpdh2(), 5, 2);//Cómo calcular el Gradiente de presión
-
-        //presion 1
-        T1 = 120;
-        P1 = 500;
-        Zsup = 0.94;
-
-        PoettmannCarpenter calculoP1 = new PoettmannCarpenter(T1, P1,Daceite, Ggas, Zsup, RGL, qw, qo, Yw, Yg, Dtuberia);
-        jTableResultados.setValueAt(calculoP1.getRs(), 0, 1);
-        jTableResultados.setValueAt(calculoP1.getBo(), 1, 1);
-        jTableResultados.setValueAt(calculoP1.getZ(), 2, 1);
-        jTableResultados.setValueAt(calculoP1.getVt(), 3, 1);
-        jTableResultados.setValueAt(calculoP1.getpm(), 4, 1);
-        jTableResultados.setValueAt(calculoP1.getdpdh(), 5, 1);
-
-        jTableTotal.setValueAt(calculoP1.getFgrafica(), 0, 1);
-        jTableTotal.setValueAt(calculoP1.getdpdhT(calculoP2.getM(), calculoP2.getVt()),1,1);
-        jTableTotal.setValueAt(calculoP1.getDh(calculoP2.getM(), calculoP2.getVt(),P2),2,1);
-
-        //CALCULAR LockhartMartinelli
-        double d, qL, L, Tprom, uL, ug;
-        d = 2;
-        Yw = 1.07;
-        qL = 2000;
-        L = 1500;
-        P1 = 850;
-        Yg = 0.65;
-        Tprom = 120;
-        RGL = 1000;
-        uL = 1;
-        ug = 0.015;
-        LockhartMartinelli correlacion = new LockhartMartinelli(d, Yw, qL, L, P1, Yg, Tprom, RGL, uL, ug);
-        jTableLyM.setValueAt(""+correlacion.getf(), 0, 1);
-        jTableLyM.setValueAt(""+correlacion.getDPL(), 1, 1);
-        jTableLyM.setValueAt(""+correlacion.getZprom(), 2, 1);
-        jTableLyM.setValueAt(""+correlacion.getqg(), 3, 1);
-        jTableLyM.setValueAt(""+correlacion.getP2(), 4, 1);
-        jTableLyM.setValueAt(""+correlacion.getDPG(), 5, 1);
-        jTableLyM.setValueAt(""+correlacion.getNReL(), 6, 1);
-        jTableLyM.setValueAt(""+correlacion.getNReg(), 7, 1);
-        jTableLyM.setValueAt(""+correlacion.getRegimefl(), 8, 1);
-        jTableLyM.setValueAt(""+correlacion.getRegimefg(), 9, 1);
-        jTableLyM.setValueAt(""+correlacion.getDPTL(), 10, 1);
-        jTableLyM.setValueAt(""+correlacion.getP2L(), 11, 1);
-        jTableLyM.setValueAt(""+correlacion.getDPTg(), 12, 1);
-        jTableLyM.setValueAt(""+correlacion.getP2g(), 13, 1);
-
-        //Calcular Eaton
-
-        P1 = 850;
-        P2 = 650;
-        Tprom = 120;
-        Yg = 0.65;
-        Yw = 1.07;
-        qL = 2000;
-        RGL = 1000;
-        d = 2;
-        //H15 = 0. Probablemente es la celda D19
-        Eaton eaton = new Eaton(P1, P2, Tprom, Yg, Yw, qL, RGL, d);
-        jTableEaton.setValueAt(eaton.getPprom(), 0, 1);
-        jTableEaton.setValueAt(eaton.getTprom(), 1, 1);
-        jTableEaton.setValueAt(eaton.getZprom(), 2, 1);
-        jTableEaton.setValueAt(eaton.getPgprom(), 3, 1);
-        jTableEaton.setValueAt(eaton.getpL(), 4, 1);
-        jTableEaton.setValueAt(eaton.getWL(), 5, 1);
-        jTableEaton.setValueAt(eaton.getqg(), 6, 1);
-        jTableEaton.setValueAt(eaton.getWg(), 7, 1);
-        jTableEaton.setValueAt(eaton.getWm(), 8, 1);
-        jTableEaton.setValueAt(eaton.getqgprom(), 9, 1);
-        jTableEaton.setValueAt(eaton.getAp(), 10, 1);
-        jTableEaton.setValueAt(eaton.getVsg(), 11, 1);
-        jTableEaton.setValueAt(eaton.getVsL(), 12, 1);
-        jTableEaton.setValueAt(eaton.getVm(), 13, 1);
-        jTableEaton.setValueAt(eaton.getHL1(), 14, 1);
-        jTableEaton.setValueAt(eaton.get1HL1(), 15, 1);
-        jTableEaton.setValueAt(eaton.getqgprom2(), 16, 1);
-        jTableEaton.setValueAt(eaton.getVsg2(), 17, 1);
-        jTableEaton.setValueAt(eaton.getVsL(), 18, 1);
-        jTableEaton.setValueAt(eaton.getVm2(), 19, 1);
-        jTableEaton.setValueAt(eaton.getHL2(), 20, 1);
-        jTableEaton.setValueAt(eaton.get1HL2(), 21, 1);
-        jTableEaton.setValueAt(eaton.getVL1(), 22, 1);
-        jTableEaton.setValueAt(eaton.getVL2(), 23, 1);
-        jTableEaton.setValueAt(eaton.getVg1(), 24, 1);
-        jTableEaton.setValueAt(eaton.getVg2(), 25, 1);
-        jTableEaton.setValueAt(eaton.getGR(), 26, 1);
-        jTableEaton.setValueAt(eaton.getLR(), 27, 1);
-        jTableEaton.setValueAt(eaton.getf(), 28, 1);
-        jTableEaton.setValueAt(eaton.getVmprom(), 29, 1);
-        jTableEaton.setValueAt(eaton.getDL(), 30, 1);   
-
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void jMenuItemBeggsBrillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemBeggsBrillActionPerformed
 
         JInternalFrame mode = new BeggsBrillJInternalFrame();
-        //JOptionPane.showMessageDialog(rootPane, mode.getWidth());  *****ASIGNAR TAMAÑO DE FORMA AUTIMATICA
-        //ContenedorjLayeredPane.setPreferredSize(new Dimension(mode.getWidth(), mode.getHeight()));
-        //this.setPreferredSize(new Dimension(mode.getWidth(), mode.getHeight()));
-        this.setBounds(this.getX(),this.getY() , mode.getSize().width+7, mode.getSize().height+82);
+        this.setBounds(this.getX(),this.getY() , mode.getSize().width, mode.getSize().height+25);
         ContenedorjLayeredPane.add(mode);
         mode.show();
         repaint();
@@ -516,15 +149,20 @@ public class Interface extends javax.swing.JFrame {
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
-         JInternalFrame mode = new LockhartMartinelliJInternalFrame();
-        //JOptionPane.showMessageDialog(rootPane, mode.getWidth());  *****ASIGNAR TAMAÑO DE FORMA AUTIMATICA
-        //ContenedorjLayeredPane.setPreferredSize(new Dimension(mode.getWidth(), mode.getHeight()));
-        //this.setPreferredSize(new Dimension(mode.getWidth(), mode.getHeight()));
-        this.setBounds(this.getX(),this.getY() , mode.getSize().width+7, mode.getSize().height+82);
+        JInternalFrame mode = new LockhartMartinelliJInternalFrame();
+        this.setBounds(this.getX(),this.getY() , mode.getSize().width, mode.getSize().height+20);        
         ContenedorjLayeredPane.add(mode);
         mode.show();
         repaint();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        JInternalFrame mode = new EatonJInternalFrame();
+        this.setBounds(this.getX(),this.getY() , mode.getSize().width, mode.getSize().height+20);        
+        ContenedorjLayeredPane.add(mode);
+        mode.show();
+        repaint();
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -562,32 +200,16 @@ public class Interface extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLayeredPane ContenedorjLayeredPane;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItemBeggsBrill;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanelGrafico;
-    private javax.swing.JPanel jPanelPrincipal;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JPopupMenu.Separator jSeparator2;
-    private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTableBeggsBrill;
-    private javax.swing.JTable jTableEaton;
-    private javax.swing.JTable jTableLyM;
-    private javax.swing.JTable jTableResultados;
-    private javax.swing.JTable jTableTotal;
     // End of variables declaration//GEN-END:variables
 }

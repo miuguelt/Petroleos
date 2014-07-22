@@ -6,6 +6,7 @@ package Herramientas;
 
 import Central.Interface;
 import Modelos.BeggsBrill;
+import Modelos.Eaton;
 import Modelos.LockhartMartinelli;
 import static java.awt.Component.CENTER_ALIGNMENT;
 import java.awt.geom.Point2D;
@@ -67,11 +68,12 @@ public class GraficadorJFrame extends javax.swing.JFrame {
             new Object [cantidad][3],
             new String [] { "Longitud ", "Caida de presión" }));
         for (int i = 0; i < 3; i++) {
-            beggsbrill = (BeggsBrill) modelo[i];
+           beggsbrill = (BeggsBrill) modelo[i];
            jTableresultados.setValueAt(beggsbrill.getLongitud(), i, 0); 
            jTableresultados.setValueAt(beggsbrill.getDp(), i, 1); 
         }        
     }
+    
     public void tablaLockhartMartinelli(Object[] modelo)
     {
         LockhartMartinelli lockhartmartinelli;
@@ -85,8 +87,21 @@ public class GraficadorJFrame extends javax.swing.JFrame {
            jTableresultados.setValueAt(lockhartmartinelli.getDPTL(), i, 1); 
         }        
     }
-        
     
+    public void tablaEaton(Object[] modelo)
+    {
+        Eaton eaton;
+        int cantidad=10;//Datos de salida
+        jTableresultados.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [cantidad][3],
+            new String [] { "Longitud ", "Caida de presión" }));
+        for (int i = 0; i < 3; i++) {
+            eaton = (Eaton) modelo[i];
+           jTableresultados.setValueAt("Agregar", i, 0); 
+           jTableresultados.setValueAt("Agregar", i, 1); 
+        }        
+    }
+        
     private void panelMouseClicked(java.awt.event.MouseEvent evt) {        
         Point2D p = panel.translateScreenToJava2D(evt.getPoint());
         JFreeChart g3 = panel.getChart();

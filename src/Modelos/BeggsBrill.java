@@ -47,7 +47,7 @@ public class BeggsBrill {
       double qw = 0; //Caudal de agua D87
 
             
-            /**
+     /**
      *
      * @param Longitud Longitud
      * @param P1 presion corriente arrib

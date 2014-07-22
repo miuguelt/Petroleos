@@ -54,8 +54,8 @@ public class Graficador extends ApplicationFrame {
 
         JFreeChart diag = ChartFactory.createXYLineChart(
                 titulo, //Titulo Grafica
-                "Ángulo [º]", // Leyenda eje X
-                "", // Leyenda eje Y
+                "eje x", // Leyenda eje X
+                "eje y", // Leyenda eje Y
 
                 conjuntoDatos, // Los datos
 
